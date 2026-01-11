@@ -3,9 +3,25 @@ let currentSlide = 0;
 const slides = document.querySelector(".slides");
 const totalSlides = document.querySelectorAll(".slide").length;
 
-/* Slide Controls */
+/* SLIDER */
 function updateSlide() {
   slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
+
+  if (currentSlide === totalSlides - 1) {
+    document.body.classList.add("night");
+    playMusic();
+    startFloatingHearts();
+
+    const ft = document.getElementById("finalText");
+    if (ft && !ft.dataset.done) {
+      ft.dataset.done = "1";
+      typeText(ft, "I choose you. Today. Tomorrow. Always. ❤️");
+    }
+  } else {
+    document.body.classList.remove("night");
+    stopMusic();
+    stopFloatingHearts();
+  }
 }
 
 function nextSlide() {
@@ -22,24 +38,17 @@ function prevSlide() {
   }
 }
 
-/* Swipe Support */
+/* Swipe */
 let startX = 0;
-
-document.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
+document.addEventListener("touchstart", e => startX = e.touches[0].clientX);
 document.addEventListener("touchend", e => {
   const diff = startX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 60) {
-    diff > 0 ? nextSlide() : prevSlide();
-  }
+  if (Math.abs(diff) > 60) diff > 0 ? nextSlide() : prevSlide();
 });
 
 /* Heart Game */
 document.addEventListener("DOMContentLoaded", () => {
   const heartsDiv = document.getElementById("hearts");
-  if (!heartsDiv) return;
 
   const items = [
     { type: "text", value: "💌 You are my peace." },
@@ -59,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     heart.onclick = () => {
       heart.onclick = null;
       heart.innerHTML = "";
-
       if (item.type === "text") {
         heart.textContent = item.value;
       } else {
@@ -72,83 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
     heartsDiv.appendChild(heart);
   });
 });
-/* 🎶 MUSIC CONTROL */
-const bgMusic = document.getElementById("bgMusic");
 
-function playMusic() {
-  if (!bgMusic) return;
-  bgMusic.volume = 0.5;
-  bgMusic.play().catch(() => {});
-}
-
-function stopMusic() {
-  if (!bgMusic) return;
-  bgMusic.pause();
-}
-
-/* 💍 PROPOSAL */
-function sayYes() {
-  alert("She said YES 💍❤️");
-}
-
-/* 😄 NO button runs away */
-const noBtn = document.getElementById("noBtn");
-if (noBtn) {
-  noBtn.addEventListener("mouseenter", () => {
-    noBtn.style.transform =
-      `translate(${Math.random() * 80 - 40}px, ${Math.random() * 60 - 30}px)`;
-  });
-}
-
-/* 🌙 NIGHT THEME + MUSIC ON LAST SLIDE */
-const originalUpdateSlide = updateSlide;
-updateSlide = function () {
-  originalUpdateSlide();
-
-  if (currentSlide === totalSlides - 1) {
-  document.body.classList.add("night");
-  playMusic();
-  startFloatingHearts();
-
-} else {
-  document.body.classList.remove("night");
-  stopMusic();
-  stopFloatingHearts();
-}
-
-  }
-};
-/* ✍️ TYPE TEXT */
+/* Typewriter */
 function typeText(el, text) {
   let i = 0;
   el.textContent = "";
   const timer = setInterval(() => {
-    el.textContent += text[i];
-    i++;
+    el.textContent += text[i++];
     if (i >= text.length) clearInterval(timer);
   }, 60);
 }
 
-/* 🎆 FIREWORKS */
-function fireworks() {
-  for (let i = 0; i < 25; i++) {
-    const f = document.createElement("div");
-    f.className = "firework";
-    f.style.left = Math.random() * 100 + "vw";
-    f.style.top = Math.random() * 100 + "vh";
-    document.body.appendChild(f);
-    setTimeout(() => f.remove(), 1200);
-  }
-}
-
-/* 💍 YES CLICK */
+/* Proposal */
 function sayYes() {
   fireworks();
-  const box = document.getElementById("passwordBox");
-  if (box) box.style.display = "block";
+  document.getElementById("passwordBox").style.display = "block";
 }
 
-/* 🔐 PASSWORD CHECK */
+/* Password */
 function checkPassword() {
   const input = document.getElementById("password");
   const msg = document.getElementById("secretMessage");
@@ -163,40 +112,38 @@ function checkPassword() {
   }
 }
 
-/* 🌙 FINAL SLIDE EFFECT */
-const oldUpdate = updateSlide;
-updateSlide = function () {
-  oldUpdate();
+/* NO button */
+const noBtn = document.getElementById("noBtn");
+if (noBtn) {
+  noBtn.addEventListener("mouseenter", () => {
+    noBtn.style.transform =
+      `translate(${Math.random() * 80 - 40}px, ${Math.random() * 60 - 30}px)`;
+  });
+}
 
-  if (currentSlide === totalSlides - 1) {
-    document.body.classList.add("night");
-    playMusic();
-
-    const ft = document.getElementById("finalText");
-    if (ft && !ft.dataset.done) {
-      ft.dataset.done = "1";
-      typeText(ft, "I choose you. Today. Tomorrow. Always. ❤️");
-    }
-  } else {
-    document.body.classList.remove("night");
-    stopMusic();
+/* Fireworks */
+function fireworks() {
+  for (let i = 0; i < 25; i++) {
+    const f = document.createElement("div");
+    f.className = "firework";
+    f.style.left = Math.random() * 100 + "vw";
+    f.style.top = Math.random() * 100 + "vh";
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 1200);
   }
-};
-/* ❤️ FLOATING HEARTS CONTROL */
-let heartInterval = null;
+}
 
+/* Floating Hearts */
+let heartInterval = null;
 function startFloatingHearts() {
   if (heartInterval) return;
-
   heartInterval = setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "floating-heart";
-    heart.textContent = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6000);
+    const h = document.createElement("div");
+    h.className = "floating-heart";
+    h.textContent = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
   }, 400);
 }
 
@@ -205,7 +152,14 @@ function stopFloatingHearts() {
   heartInterval = null;
 }
 
-
-
-
-
+/* Music */
+const bgMusic = document.getElementById("bgMusic");
+function playMusic() {
+  if (!bgMusic) return;
+  bgMusic.volume = 0.5;
+  bgMusic.play().catch(() => {});
+}
+function stopMusic() {
+  if (!bgMusic) return;
+  bgMusic.pause();
+}
