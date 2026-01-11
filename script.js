@@ -106,8 +106,10 @@ updateSlide = function () {
   originalUpdateSlide();
 
   if (currentSlide === totalSlides - 1) {
-    document.body.classList.add("night");
-    playMusic();
+  document.body.classList.add("night");
+  playMusic();
+  startFloatingHearts();
+
   } else {
     document.body.classList.remove("night");
     stopMusic();
@@ -199,6 +201,7 @@ function stopFloatingHearts() {
   clearInterval(heartInterval);
   heartInterval = null;
 }
+
 
 
 
