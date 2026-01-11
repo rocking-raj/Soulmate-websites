@@ -168,4 +168,38 @@ body.night p {
   p { font-size: 16px; }
   .heart { width: 80px; height: 80px; }
 }
+/* 📸 MEMORY SLIDE */
+.memories {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.memories img {
+  width: 100px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 14px;
+  animation: popIn 0.6s ease forwards;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .memories img {
+    width: 90px;
+    height: 120px;
+  }
+}
+
 
