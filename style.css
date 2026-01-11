@@ -10,7 +10,7 @@ body {
   background: linear-gradient(135deg, #ffd6e8, #fff0f5);
 }
 
-/* SLIDER */
+/* Slider */
 .slider {
   width: 100vw;
   height: 100vh;
@@ -19,22 +19,24 @@ body {
 
 .slides {
   display: flex;
-  height: 100%;
+  width: 300vw; /* 3 slides */
+  height: 100vh;
   transition: transform 0.6s ease;
 }
 
 .slide {
-  width: 100vw;
+  flex: 0 0 100vw;
   height: 100vh;
   padding: 30px;
-  text-align: center;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
+/* Text */
 h1, h2 {
   color: #e91e63;
   margin-bottom: 15px;
@@ -45,7 +47,7 @@ p {
   margin-bottom: 25px;
 }
 
-/* BUTTONS */
+/* Buttons */
 button {
   padding: 12px 24px;
   margin: 8px;
@@ -57,24 +59,26 @@ button {
   cursor: pointer;
 }
 
-/* HEART GAME */
+/* Heart Game */
 #hearts {
   display: flex;
   gap: 15px;
-  margin: 20px 0;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 20px 0;
 }
 
 .heart {
   width: 90px;
   height: 90px;
-  border-radius: 20px;
   background: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  font-size: 30px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+
   cursor: pointer;
   overflow: hidden;
 }
@@ -85,11 +89,10 @@ button {
   object-fit: cover;
 }
 
-/* MOBILE */
+/* Mobile */
 @media (max-width: 600px) {
   p { font-size: 16px; }
-  .heart {
-    width: 80px;
-    height: 80px;
-  }
+  .heart { width: 80px; height: 80px; }
 }
+
+
