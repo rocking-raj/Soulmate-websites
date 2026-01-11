@@ -19,7 +19,7 @@ body {
 
 .slides {
   display: flex;
-  width: 400vw;
+  width: 500vw;
   height: 100vh;
   transition: transform 0.6s ease;
 }
@@ -201,5 +201,6 @@ body.night p {
     height: 120px;
   }
 }
+
 
 
