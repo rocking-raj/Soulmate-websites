@@ -177,5 +177,28 @@ updateSlide = function () {
     stopMusic();
   }
 };
+/* ❤️ FLOATING HEARTS CONTROL */
+let heartInterval = null;
+
+function startFloatingHearts() {
+  if (heartInterval) return;
+
+  heartInterval = setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.textContent = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 400);
+}
+
+function stopFloatingHearts() {
+  clearInterval(heartInterval);
+  heartInterval = null;
+}
+
 
 
