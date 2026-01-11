@@ -3,7 +3,7 @@ let currentSlide = 0;
 const slides = document.querySelector(".slides");
 const totalSlides = document.querySelectorAll(".slide").length;
 
-/* SLIDE FUNCTIONS */
+/* Slide Controls */
 function updateSlide() {
   slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
 }
@@ -22,7 +22,7 @@ function prevSlide() {
   }
 }
 
-/* SWIPE SUPPORT */
+/* Swipe Support */
 let startX = 0;
 
 document.addEventListener("touchstart", e => {
@@ -36,12 +36,12 @@ document.addEventListener("touchend", e => {
   }
 });
 
-/* HEART GAME */
+/* Heart Game */
 document.addEventListener("DOMContentLoaded", () => {
   const heartsDiv = document.getElementById("hearts");
   if (!heartsDiv) return;
 
-  const data = [
+  const items = [
     { type: "text", value: "💌 You are my peace." },
     { type: "text", value: "❤️ My home is with you." },
     { type: "image", value: "photos/s1.jpg" },
@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
     { type: "image", value: "photos/s3.jpg" }
   ];
 
-  data.sort(() => Math.random() - 0.5);
+  items.sort(() => Math.random() - 0.5);
 
-  data.forEach(item => {
+  items.forEach(item => {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.textContent = "❤️";
