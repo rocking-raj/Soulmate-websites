@@ -94,5 +94,32 @@ button {
   p { font-size: 16px; }
   .heart { width: 80px; height: 80px; }
 }
+/* 🌙 NIGHT THEME (LAST SLIDE ONLY) */
+body.night {
+  background: radial-gradient(circle at top, #1b1f3b, #0b0f24);
+}
+
+body.night h1,
+body.night h2,
+body.night p {
+  color: #ffb6d9;
+}
+
+/* 💍 Proposal buttons */
+.proposal {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.proposal button {
+  min-width: 120px;
+}
+
+/* NO button escape 😄 */
+#noBtn {
+  position: relative;
+}
+
 
 
