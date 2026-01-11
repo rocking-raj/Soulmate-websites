@@ -30,47 +30,45 @@
     <div class="slide">
       <h2>Find My Heart 💖</h2>
       <p>Some hearts hide surprises…</p>
-      <!-- Slide 4 -->
-<!-- Slide 4 -->
-<div class="slide">
-  <h2>One Last Question 💍</h2>
-  <p id="finalText" class="typewriter"></p>
-
-  <div class="proposal">
-    <button onclick="sayYes()">YES 💖</button>
-    <button id="noBtn">NO 🙈</button>
-  </div>
-
-  <div id="passwordBox" style="display:none;">
-    <p>Enter our password 💕</p>
-    <input type="password" id="password" placeholder="Hint: our time 😉">
-    <br><br>
-    <button onclick="checkPassword()">Unlock 💖</button>
-    <p id="secretMessage" style="display:none;">
-      From today till forever, I choose you ❤️  
-      You are my home, my peace, my everything 🌙✨
-    </p>
-    <p id="wrong" style="color:red;"></p>
-  </div>
-
-  <button onclick="prevSlide()">⬅ Back</button>
-</div>
-
-<audio id="bgMusic" src="songs/love.mp3" loop></audio>
-
-
       <div id="hearts"></div>
-
       <button onclick="prevSlide()">⬅ Back</button>
       <button onclick="nextSlide()">Next ➡️</button>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>One Last Question 💍</h2>
+      <p id="finalText" class="typewriter"></p>
+
+      <div class="proposal">
+        <button onclick="sayYes()">YES 💖</button>
+        <button id="noBtn">NO 🙈</button>
+      </div>
+
+      <div id="passwordBox" style="display:none;">
+        <p>Enter our password 💕</p>
+        <input type="password" id="password" placeholder="Hint: our time 😉">
+        <br><br>
+        <button onclick="checkPassword()">Unlock 💖</button>
+        <p id="secretMessage" style="display:none;">
+          I choose you. Today. Tomorrow. Always. ❤️  
+          You are my home, my peace, my forever 🌙✨
+        </p>
+        <p id="wrong" style="color:red;"></p>
+      </div>
+
+      <button onclick="prevSlide()">⬅ Back</button>
     </div>
 
   </div>
 </div>
 
+<audio id="bgMusic" src="music/love.mp3" loop></audio>
+
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
