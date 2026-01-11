@@ -68,8 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
     heart.onclick = () => {
       heart.onclick = null;
       heart.innerHTML = "";
-      if (item.type === "text") {
-        heart.textContent = item.value;
+    if (item.type === "text") {
+  heart.innerHTML = `<span>${item.value}</span>`;
+}
       } else {
         const img = document.createElement("img");
         img.src = item.value;
@@ -163,3 +164,4 @@ function stopMusic() {
   if (!bgMusic) return;
   bgMusic.pause();
 }
+
