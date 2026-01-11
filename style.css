@@ -195,12 +195,13 @@ body.night p {
 }
 
 /* 📱 Mobile */
-@media (max-width: 600px) {
+@media (max-width: 200px) {
   .memories img {
     width: 90px;
     height: 120px;
   }
 }
+
 
 
 
