@@ -110,9 +110,12 @@ updateSlide = function () {
   playMusic();
   startFloatingHearts();
 
-  } else {
-    document.body.classList.remove("night");
-    stopMusic();
+} else {
+  document.body.classList.remove("night");
+  stopMusic();
+  stopFloatingHearts();
+}
+
   }
 };
 /* ✍️ TYPE TEXT */
@@ -201,6 +204,7 @@ function stopFloatingHearts() {
   clearInterval(heartInterval);
   heartInterval = null;
 }
+
 
 
 
