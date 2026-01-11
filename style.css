@@ -120,6 +120,46 @@ body.night p {
 #noBtn {
   position: relative;
 }
+/* ✍️ TYPEWRITER */
+.typewriter {
+  font-size: 20px;
+  min-height: 30px;
+  border-right: 2px solid #ff7eb3;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 🔐 PASSWORD */
+#password {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+/* 🎆 FIREWORKS */
+.firework {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: gold;
+  border-radius: 50%;
+  z-index: 50;
+  animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+
 
 
 
