@@ -72,3 +72,45 @@ document.addEventListener("DOMContentLoaded", () => {
     heartsDiv.appendChild(heart);
   });
 });
+/* 🎶 MUSIC CONTROL */
+const bgMusic = document.getElementById("bgMusic");
+
+function playMusic() {
+  if (!bgMusic) return;
+  bgMusic.volume = 0.5;
+  bgMusic.play().catch(() => {});
+}
+
+function stopMusic() {
+  if (!bgMusic) return;
+  bgMusic.pause();
+}
+
+/* 💍 PROPOSAL */
+function sayYes() {
+  alert("She said YES 💍❤️");
+}
+
+/* 😄 NO button runs away */
+const noBtn = document.getElementById("noBtn");
+if (noBtn) {
+  noBtn.addEventListener("mouseenter", () => {
+    noBtn.style.transform =
+      `translate(${Math.random() * 80 - 40}px, ${Math.random() * 60 - 30}px)`;
+  });
+}
+
+/* 🌙 NIGHT THEME + MUSIC ON LAST SLIDE */
+const originalUpdateSlide = updateSlide;
+updateSlide = function () {
+  originalUpdateSlide();
+
+  if (currentSlide === totalSlides - 1) {
+    document.body.classList.add("night");
+    playMusic();
+  } else {
+    document.body.classList.remove("night");
+    stopMusic();
+  }
+};
+
