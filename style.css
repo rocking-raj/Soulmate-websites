@@ -73,7 +73,6 @@ button {
   height: 90px;
   background: rgba(255,255,255,0.7);
   border-radius: 20px;
-  font-size: 30px;
 
   display: flex;
   align-items: center;
@@ -81,7 +80,17 @@ button {
 
   cursor: pointer;
   overflow: hidden;
+  padding: 8px;
+  text-align: center;
 }
+
+/* ❤️ text inside heart */
+.heart span {
+  font-size: 13px;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
 
 .heart img {
   width: 100%;
@@ -159,3 +168,4 @@ body.night p {
   p { font-size: 16px; }
   .heart { width: 80px; height: 80px; }
 }
+
