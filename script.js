@@ -1,10 +1,9 @@
 let currentSlide = 0;
 
 const slides = document.querySelector(".slides");
-let totalSlides;
-document.addEventListener("DOMContentLoaded", () => {
-  totalSlides = document.querySelectorAll(".slide").length;
-});
+const slideItems = document.querySelectorAll(".slide");
+const totalSlides = slideItems.length;
+
 
 
 /* SLIDER */
@@ -168,5 +167,6 @@ function stopMusic() {
   if (!bgMusic) return;
   bgMusic.pause();
 }
+
 
 
