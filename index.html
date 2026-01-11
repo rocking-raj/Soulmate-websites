@@ -31,13 +31,26 @@
       <h2>Find My Heart 💖</h2>
       <p>Some hearts hide surprises…</p>
       <!-- Slide 4 -->
+<!-- Slide 4 -->
 <div class="slide">
   <h2>One Last Question 💍</h2>
-  <p>Will you be mine forever?</p>
+  <p id="finalText" class="typewriter"></p>
 
   <div class="proposal">
     <button onclick="sayYes()">YES 💖</button>
     <button id="noBtn">NO 🙈</button>
+  </div>
+
+  <div id="passwordBox" style="display:none;">
+    <p>Enter our password 💕</p>
+    <input type="password" id="password" placeholder="Hint: our time 😉">
+    <br><br>
+    <button onclick="checkPassword()">Unlock 💖</button>
+    <p id="secretMessage" style="display:none;">
+      From today till forever, I choose you ❤️  
+      You are my home, my peace, my everything 🌙✨
+    </p>
+    <p id="wrong" style="color:red;"></p>
   </div>
 
   <button onclick="prevSlide()">⬅ Back</button>
@@ -58,6 +71,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
